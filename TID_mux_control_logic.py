@@ -54,9 +54,6 @@ def main():
             x_binary = decimalToBinary(x)
             y_binary = decimalToBinary(y)
             transistor_list.append(Transistor(str(x_binary), str(y_binary), str(x), str(y), x_binary[0], x_binary[1], x_binary[2], x_binary[3], x_binary[4], y_binary[0], y_binary[1], y_binary[2], y_binary[3], y_binary[4]))
-    
-    #transistor_list[1].print_tran()
-
         
     GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
@@ -69,31 +66,43 @@ def main():
     #GPIO.setup(21, GPIO.OUT)
     #GPIO.setup(21, GPIO.OUT)
     #GPIO.setup(21, GPIO.OUT)
-    #GPIO.setup(21, GPIO.OUT)
+    #GPIO.setup(21, GPIO.OUT) 
 
     for x in transistor_list:
-        if x.x1 == 1:
+        if x.x1 == "1":
+            print("x1: " + x.x1)
             GPIO.output(21, GPIO.HIGH)
         else:
+            print("x1: " + x.x1)
             GPIO.output(21, GPIO.LOW)
-        if x.x2 == 1:
+        if x.x2 == "1":
+            print("x2: " + x.x2)
             GPIO.output(20, GPIO.HIGH)
         else:
+            print("x2: " + x.x2)
             GPIO.output(20, GPIO.LOW)
-        if x.x3 == 1:
+        if x.x3 == "1":
+            print("x3: " + x.x3)
             GPIO.output(16, GPIO.HIGH)
         else:
+            print("x3: " + x.x3)
             GPIO.output(16, GPIO.LOW)
-        if x.x4 == 1:
+        if x.x4 == "1":
+            print("x4: " + x.x4)
             GPIO.output(12, GPIO.HIGH)
         else:
+            print("x4: " + x.x4)
             GPIO.output(12, GPIO.LOW)
-        if x.x5 == 1:
+        if x.x5 == "1":
+            print("x5: " + x.x5)
             GPIO.output(1, GPIO.HIGH)
         else:
+            print("x5: " + x.x5)
             GPIO.output(1, GPIO.LOW)
-         
-        time.sleep(10)
+                 
+        print( " ")
+        print(" ")
+        time.sleep(.1)
     
 
 
