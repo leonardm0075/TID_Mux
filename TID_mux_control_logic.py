@@ -49,25 +49,51 @@ def main():
     
     transistor_list = []
     
-    for x in range(1,21):     
-        for y in range(1,21):
+    for x in range(1,33):     
+        for y in range(1,25):
             x_binary = decimalToBinary(x)
             y_binary = decimalToBinary(y)
             transistor_list.append(Transistor(str(x_binary), str(y_binary), str(x), str(y), x_binary[0], x_binary[1], x_binary[2], x_binary[3], x_binary[4], y_binary[0], y_binary[1], y_binary[2], y_binary[3], y_binary[4]))
     
     #transistor_list[1].print_tran()
 
+        
     GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
-    GPIO.setup(21,GPIO.OUT)
-    print("LED ON")
-    GPIO.output(21,GPIO.HIGH)
-    time.sleep(10)
-    print("LED OFF")
-    GPIO.output(21,GPIO.LOW)
+    GPIO.setup(21, GPIO.OUT)
+    GPIO.setup(20, GPIO.OUT)
+    GPIO.setup(16, GPIO.OUT)
+    GPIO.setup(12, GPIO.OUT)
+    GPIO.setup(1, GPIO.OUT)
+    #GPIO.setup(21, GPIO.OUT)
+    #GPIO.setup(21, GPIO.OUT)
+    #GPIO.setup(21, GPIO.OUT)
+    #GPIO.setup(21, GPIO.OUT)
+    #GPIO.setup(21, GPIO.OUT)
 
-
-
+    for x in transistor_list:
+        if x.x1 == 1:
+            GPIO.output(21, GPIO.HIGH)
+        else:
+            GPIO.output(21, GPIO.LOW)
+        if x.x2 == 1:
+            GPIO.output(20, GPIO.HIGH)
+        else:
+            GPIO.output(20, GPIO.LOW)
+        if x.x3 == 1:
+            GPIO.output(16, GPIO.HIGH)
+        else:
+            GPIO.output(16, GPIO.LOW)
+        if x.x4 == 1:
+            GPIO.output(12, GPIO.HIGH)
+        else:
+            GPIO.output(12, GPIO.LOW)
+        if x.x5 == 1:
+            GPIO.output(1, GPIO.HIGH)
+        else:
+            GPIO.output(1, GPIO.LOW)
+         
+        time.sleep(10)
     
 
 
